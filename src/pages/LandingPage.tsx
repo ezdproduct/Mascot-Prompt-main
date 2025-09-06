@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -6,24 +6,6 @@ import { LandingPagePresetCarousel } from '@/components/LandingPagePresetCarouse
 
 const LandingPage = () => {
   const navigate = useNavigate();
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    // Ẩn con trỏ mặc định
-    document.body.style.cursor = 'none';
-
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-
-    // Dọn dẹp: khôi phục con trỏ mặc định và xóa trình nghe sự kiện
-    return () => {
-      document.body.style.cursor = 'default';
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
 
   const handleStart = () => {
     navigate('/generator');
@@ -31,19 +13,7 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground p-4 md:p-6 text-center animate-fade-in relative overflow-hidden">
-      {/* Phần tử con trỏ theo chuột */}
-      <img
-        src="/images/cursor-glow.png" // Sử dụng hình ảnh con trỏ mới
-        alt="Custom Cursor"
-        className="fixed w-12 h-12 pointer-events-none z-50 transition-transform duration-75 ease-out" // Điều chỉnh kích thước và z-index
-        style={{
-          left: mousePosition.x,
-          top: mousePosition.y,
-          transform: 'translate(-5px, -5px)', // Điều chỉnh để đầu con trỏ khớp với vị trí chuột
-        }}
-      />
-
-      <div className="max-w-3xl mx-auto space-y-6 z-10"> {/* Đảm bảo nội dung nằm trên đóm sáng */}
+      <div className="max-w-3xl mx-auto space-y-6 z-10">
         <div className="flex items-center justify-center gap-3 mb-4">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">
             Trình Tạo Prompt Mascot
