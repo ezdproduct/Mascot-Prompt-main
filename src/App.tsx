@@ -5,14 +5,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import { PromptGenerator } from "./pages/GeneratorPage"; // Changed to named import
 import NotFound from "./pages/NotFound";
-import { useDevToolsProtection } from "./hooks/useDevToolsProtection";
 // import { ThemeProvider } from "./components/ThemeProvider"; // Import ThemeProvider
 
 const queryClient = new QueryClient();
 
 const App = () => {
-  useDevToolsProtection();
-
   return (
     <QueryClientProvider client={queryClient}>
       {/* <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme"> */}
