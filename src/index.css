@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%; /* White */
+    --foreground: 0 0% 0%;   /* Black */
+    --card: 0 0% 100%;       /* White */
+    --card-foreground: 0 0% 0%; /* Black */
+    --popover: 0 0% 100%;    /* White */
+    --popover-foreground: 0 0% 0%; /* Black */
+    --primary: 0 0% 15%;     /* Dark Gray for primary actions */
+    --primary-foreground: 0 0% 100%; /* White text on primary */
+    --secondary: 0 0% 95%;   /* Light Gray for secondary elements */
+    --secondary-foreground: 0 0% 15%; /* Dark Gray text on secondary */
+    --muted: 0 0% 90%;       /* Even lighter gray */
+    --muted-foreground: 0 0% 40%; /* Medium Gray for muted text */
+    --accent: 0 0% 95%;      /* Same as secondary */
+    --accent-foreground: 0 0% 15%; /* Same as secondary-foreground */
+    --destructive: 0 84.2% 60.2%; /* Keep red for errors */
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 85%;      /* Light Gray border */
+    --input: 0 0% 90%;       /* Light Gray input */
+    --ring: 0 0% 15%;        /* Dark Gray ring */
+    --radius: 0.75rem;        /* Increased radius for more rounded corners */
+  }
+
+  /* Removed .dark theme variables */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Đã xóa quy tắc custom-cursor-landing */
+}
